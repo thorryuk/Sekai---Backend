@@ -56,7 +56,7 @@ def test_store_crud(client):
     """Test create, read, update, and delete operations for stores."""
     tokens = login(client)
     access_token = tokens['access_token']
-    
+
     headers = {
         'Authorization': f'Bearer {access_token}'
     }
@@ -108,9 +108,9 @@ def test_qr_scan_crud(client):
 
     # Create a QR scan
     create_response = client.post('/scans', headers=headers, json={
-        'product_id': 101,
+        'product_id': 1,
         'scan_time': '2024-12-19T14:30:00Z',
-        'scanned_by': 2
+        'scanned_by': 1
     })
     assert create_response.status_code == 201
     scan_id = create_response.get_json()[0]['id']
